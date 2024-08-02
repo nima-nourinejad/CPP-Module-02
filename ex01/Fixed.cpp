@@ -1,10 +1,5 @@
 #include "Fixed.hpp"
 
-int customRound(float value) {
-  float myRound;
-  myRound = std::abs(value - floor(value)) >= 0.5 ? ceil(value) : floor(value);
-  return (static_cast<int>(myRound));
-}
 Fixed::Fixed() : _rawBits(0) {
   std::cout << "Default constructor called" << std::endl;
 }
@@ -14,7 +9,7 @@ Fixed::Fixed(const int value) {
 }
 Fixed::Fixed(const float value) {
   std::cout << "Float constructor called" << std::endl;
-  _rawBits = customRound(value * (1 << _nbFractionalBits));
+  _rawBits = std::roundf(value * (1 << _nbFractionalBits));
 }
 Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 Fixed::Fixed(const Fixed &src) : _rawBits(src._rawBits) {
