@@ -16,7 +16,7 @@ Fixed &Fixed::operator=(const Fixed &src) {
 int Fixed::getRawBits(void) const { return _rawBits; }
 void Fixed::setRawBits(int const raw) { _rawBits = raw; }
 const int Fixed::_nbFractionalBits = 8;
-
+//////////////////////////////
 Fixed::Fixed(const int value) {
   std::cout << "Int constructor called" << std::endl;
   _rawBits = value << _nbFractionalBits;
