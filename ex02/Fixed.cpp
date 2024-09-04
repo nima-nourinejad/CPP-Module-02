@@ -11,9 +11,9 @@ Fixed::Fixed(const float value) {
   _rawBits = std::roundf(value * (1 << _nbFractionalBits));
 }
 Fixed::~Fixed() {}
-Fixed::Fixed(const Fixed &src) : _rawBits(src._rawBits) {}
+Fixed::Fixed(const Fixed &src){ *this = src; }
 Fixed &Fixed::operator=(const Fixed &src) {
-  this->_rawBits = src._rawBits;
+  this->_rawBits = src.getRawBits();
   return *this;
 }
 int Fixed::getRawBits(void) const { return _rawBits; }
